@@ -8,7 +8,7 @@ Resources:
 
 * Quickstart and examples at [gabesmed.github.io/ember-leaflet](http://gabesmed.github.io/ember-leaflet)
 * [Class reference](http://gabesmed.github.io/ember-leaflet/docs/index.html) (YUIDoc)
-* Minimal [JSFiddle](http://jsfiddle.net/3bUv8/)
+* Minimal [JSFiddle](http://jsfiddle.net/y524t8f8/)
 
 ## Usage
 
