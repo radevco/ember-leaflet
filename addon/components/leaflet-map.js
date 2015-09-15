@@ -47,6 +47,7 @@ export default Ember.Component.extend(ContainerLayerMixin, {
   },
 
   _createLayer: function() {
+    debugger;
     if(this._layer) { return; }
     Ember.assert("Center must be set before creating map, was " +
       this.get('center'), !!this.get('center'));
