@@ -13,7 +13,11 @@ import DefaultTileLayer from '../layers/default-tile';
 var DEFAULT_CENTER = L.latLng(40.713282, -74.006978);
 
 export default Ember.Component.extend(ContainerLayerMixin, {
-  options: {},
+  options: {
+    maxZoom: 5,
+    minZoom: 0,
+    crs: L.CRS.Simple
+  },
   center: DEFAULT_CENTER,
   zoom: 16,
 
