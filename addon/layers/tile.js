@@ -15,10 +15,12 @@ export default Layer.extend({
   tileUrl: null,
   options: {},
   _newLayer: function() {
+    debugger;
     return L.tileLayer(get(this, 'tileUrl'), get(this, 'options'));
   },
 
   tileUrlDidChange: Ember.observer('tileUrl', function() {
+    debugger;
     if(!this._layer) { return; }
     this._layer.setUrl(this.get('tileUrl'));
   }),
