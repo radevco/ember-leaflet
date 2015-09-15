@@ -14,6 +14,7 @@ var get = Ember.get;
 export default ContainerLayer.extend({
   content: [],
   isVirtual: true,
+  _oldContent: null,
 
   itemLayerClass: Ember.computed(function() {
     throw new Error("itemLayerClass must be defined.");
@@ -38,10 +39,19 @@ export default ContainerLayer.extend({
 
   _contentDidChange: Ember.observer('content', function() {
     var content = get(this, 'content');
-    debugger;
+    var oldContent = get(this, '_oldContent');
+
+    if (content !== oldContent){
+      if(oldContent) { oldContent.removeArrayObserver(this); }
+      var len = oldContent ? get(oldContent, 'length') : 0;
+      this.arrayWillChange(oldContent, 0, len);
+    }
+
     if(content) { content.addArrayObserver(this); }
-    var len = content ? get(content, 'length') : 0;
-    this.arrayDidChange(content, 0, null, len);
+    var newLen = content ? get(content, 'length') : 0;
+    this.arrayDidChange(content, 0, null, newLen);
+
+    this.set('_oldContent', content);
   }),
 
   arrayWillChange: function(array, idx, removedCount) {
